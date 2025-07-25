@@ -22,6 +22,10 @@ def parse_backcountry(html: str) -> List[Tuple[str, str, str, str]]:
     return parsed
 
 def parse_steepandcheap(html: str) -> List[Tuple[str, str, str, str]]:
+    """
+    Parses product info from Steep and Cheap's HTML page.
+    Returns list of (brand, name, price, source).
+    """
     soup = BeautifulSoup(html, 'html.parser')
     products = soup.find_all('div', class_='product-tile')
     parsed = []
@@ -38,6 +42,10 @@ def parse_steepandcheap(html: str) -> List[Tuple[str, str, str, str]]:
     return parsed
 
 def parse_footbeta(html: str) -> List[Tuple[str, str, str, str]]:
+    """
+    Parses product info from Footbeta's HTML page.
+    Returns list of (brand, name, price, source).
+    """
     soup = BeautifulSoup(html, 'html.parser')
     products = soup.find_all('div', class_='product-card')
     parsed = []
