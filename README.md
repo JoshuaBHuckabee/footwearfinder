@@ -10,7 +10,7 @@ A Python web scraper that collects climbing shoe data from Backcountry.com.
 
 ## Project Structure
 
-footwearfinder/
+```footwearfinder/
 ├── footwearfinder/
 │ ├── scraper.py
 │ ├── parser.py

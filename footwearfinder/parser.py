@@ -20,3 +20,35 @@ def parse_backcountry(html: str) -> List[Tuple[str, str, str, str]]:
             continue
 
     return parsed
+
+def parse_steepandcheap(html: str) -> List[Tuple[str, str, str, str]]:
+    soup = BeautifulSoup(html, 'html.parser')
+    products = soup.find_all('div', class_='product-tile')
+    parsed = []
+
+    for product in products:
+        try:
+            name = product.find('h3', class_='product-name').text.strip()
+            price = product.find('span', class_='product-price').text.strip()
+            brand = name.split()[0]
+            parsed.append((brand, name, price, 'steepandcheap'))
+        except AttributeError:
+            continue
+
+    return parsed
+
+def parse_footbeta(html: str) -> List[Tuple[str, str, str, str]]:
+    soup = BeautifulSoup(html, 'html.parser')
+    products = soup.find_all('div', class_='product-card')
+    parsed = []
+
+    for product in products:
+        try:
+            name = product.find('h3', class_='product-title').text.strip()
+            price = product.find('span', class_='product-price').text.strip()
+            brand = name.split()[0]
+            parsed.append((brand, name, price, 'footbeta'))
+        except AttributeError:
+            continue
+
+    return parsed
