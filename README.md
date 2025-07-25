@@ -22,7 +22,7 @@ A Python web scraper that collects climbing shoe data from Backcountry.com.
 ├── .gitignore
 ├── requirements.txt
 └── README.md
-
+```
 ## Usage
 
 1. Create and activate a virtual environment:
@@ -31,13 +31,14 @@ A Python web scraper that collects climbing shoe data from Backcountry.com.
     ```bash
     python -m venv .venv
     .venv\Scripts\activate
-
+```
 2. Install dependencies:
 
    ```bash
    pip install -r requirements.txt
-
+```
 3. Run the main script:
 
    ```bash
    python main.py
+```
