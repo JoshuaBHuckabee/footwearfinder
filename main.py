@@ -1,5 +1,5 @@
 from footwearfinder.scraper import save_html, load_html
-from footwearfinder.parser import parse_backcountry, parse_steepandcheap, parse_footbeta
+from footwearfinder.parser import parse_backcountry, parse_steepandcheap, parse_footbeta, parse_rei
 from footwearfinder.output import output_to_text, output_to_csv
 
 def main():
@@ -21,6 +21,12 @@ def main():
             "html_file": "climbing_shoes_footbeta.html",
             "parser": parse_footbeta,
             "source": "footbeta"
+        },
+        {
+            "url": "https://www.rei.com/c/climbing-shoes",
+            "html_file" : "climbing_shoes_rei.html",
+            "parser" : parse_rei,
+            "source" : "rei"
         }
     ]
 

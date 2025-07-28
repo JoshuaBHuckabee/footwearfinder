@@ -64,4 +64,22 @@ def parse_footbeta(html: str) -> List[Tuple[str, str, str, str]]:
         
     return parsed
 
+def parse_rei(html: str) -> List[Tuple[str, str, str, str]]:
+    """
+    Parses product info from REI's HTML.
+    Returns list of (brand, model, price_string, 'rei').
+    """
+    soup = BeautifulSoup(html, "html.parser")
+    products = soup.find_all("li", class_="VcGDfKKy_dvNbxUqm29K")
+    parsed = []
+    
+    for product in products:
+        try:
+            brand = product.find(attrs={"data-ui": "product-brand"})
+            name = product.find(attrs={"data-ui": "product-title"})
+            price = product.find(attrs={"data-ui": "full-price"})
+            parsed.append((brand, name, price, 'rei'))
+        except AttributeError:
+            continue
 
+    return parsed
