@@ -13,10 +13,9 @@ def parse_backcountry(html: str) -> List[Tuple[str, str, str, str]]:
     parsed = []
     for shoe in products:
         try:
-            #TODO convert text.strip to get_text(strip=True)
-            brand = shoe.find(attrs={"data-id": "brandName"}).text.strip()
-            name = shoe.find(attrs={"data-id": "title"}).text.strip()
-            price = shoe.find(attrs={"data-id": "price"}).text.strip()
+            brand = shoe.find(attrs={"data-id": "brandName"}).get_text(strip=True)
+            name = shoe.find(attrs={"data-id": "title"}).get_text(strip=True)
+            price = shoe.find(attrs={"data-id": "price"}).get_text(strip=True)
             parsed.append((brand, name, price, "backcountry"))
         except AttributeError:
             continue
@@ -34,10 +33,9 @@ def parse_steepandcheap(html: str) -> List[Tuple[str, str, str, str]]:
 
     for product in products:
         try:
-            #TODO convert text.strip to get_text(strip=True)
-            brand = product.find(attrs={"data-id": "brandName"}).text.strip()
-            name = product.find(attrs={"data-id": "title"}).text.strip()
-            price = product.find(attrs={"data-id": "price"}).text.strip()
+            brand = product.find(attrs={"data-id": "brandName"}).get_text(strip=True)
+            name = product.find(attrs={"data-id": "title"}).get_text(strip=True)
+            price = product.find(attrs={"data-id": "price"}).get_text(strip=True)
             parsed.append((brand, name, price, 'steepandcheap'))
         except AttributeError:
             continue
